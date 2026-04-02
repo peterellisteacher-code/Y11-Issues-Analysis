@@ -2335,14 +2335,11 @@ main {
     <h1 class="title-heading">THE RULER'S COURT</h1>
     <p class="title-subtitle">Ethical Issues Analysis &mdash; Year 11 Philosophy</p>
     <div class="title-buttons">
-      <button class="title-btn title-btn-king" onclick="startTitleMusic(); goToPhase('1')">BE THE KING<br><span style="font-size:13px;font-weight:normal;text-transform:none;">(start the assignment)</span></button>
-      <button class="title-btn title-btn-sage" onclick="startTitleMusic(); goToPhase('0sage')">SEEK THE SAGE<br><span style="font-size:13px;font-weight:normal;text-transform:none;">(explain the assignment)</span></button>
-    </div>
-    <p class="title-music-note">Click either button to begin (sound will play)</p>
-    <div class="title-resources">
-      <a class="title-res-btn" href="3 - Issues Analysis/Year 11 Issues Analysis Sem 1 2026.docx" download>Tasksheet</a>
-      <button class="title-res-btn" onclick="goToPhase('0tasksheet')">Tasksheet Explained</button>
-      <button class="title-res-btn" onclick="goToPhase('0readings')">Essential Readings for Your Theories</button>
+      <button class="title-btn title-btn-king" onclick="goToPhase('1')">START THE ASSIGNMENT</button>
+      <button class="title-btn title-btn-sage" onclick="goToPhase('0sage')">EXPLAIN THE ASSIGNMENT (SIMPLE)</button>
+      <button class="title-btn title-btn-sage" onclick="goToPhase('0tasksheet')">EXPLAIN THE ASSIGNMENT (WITH EXEMPLAR)</button>
+      <a class="title-btn title-btn-sage" href="3 - Issues Analysis/Year 11 Issues Analysis Sem 1 2026.docx" download style="text-decoration:none;text-align:center;">DOWNLOAD THE TASKSHEET</a>
+      <button class="title-btn title-btn-sage" onclick="goToPhase('0readings')">ESSENTIAL SOURCES FOR YOUR ASSIGNMENT</button>
     </div>
     <div id="resumePrompt" style="display:none; margin-top:20px; background:rgba(212,165,116,0.15); border:2px solid #d4a574; border-radius:12px; padding:16px 24px; max-width:400px;">
       <p style="color:#d4a574; font-size:15px; font-weight:bold; margin-bottom:8px;">Welcome back!</p>
@@ -2569,7 +2566,7 @@ main {
           <p style="font-size: 20px; color: #d4a574;">Time to take your throne.</p>
         </div>
         <div style="text-align: center; margin-top: 24px;">
-          <button class="title-btn title-btn-king" onclick="goToPhase('1')">BE THE KING<br><span style="font-size:13px;font-weight:normal;text-transform:none;">(start the assignment)</span></button>
+          <button class="title-btn title-btn-king" onclick="goToPhase('1')">START THE ASSIGNMENT</button>
         </div>
       </div>
 
@@ -2837,7 +2834,7 @@ main {
 <div id="phase0readings" class="phase">
   <div class="readings-page">
     <div class="readings-container">
-      <h2 class="readings-heading">Essential Readings for Your Theories</h2>
+      <h2 class="readings-heading">Essential Sources for Your Assignment</h2>
       <p class="readings-subtitle">All readings are from James Rachels' &ldquo;The Elements of Moral Philosophy&rdquo;</p>
 
       <!-- UTILITARIANISM -->
@@ -2857,7 +2854,7 @@ main {
             <p style="margin-top:10px;"><strong>Key concepts:</strong> Principle of Utility, Greatest Happiness Principle, Harm Principle, higher vs lower pleasures, speciesism, impartiality</p>
           </div>
           <div class="reading-btns">
-            <a class="reading-dl-btn" href="3 - Issues Analysis/Rachels - Utilitarianism.pdf" download>Download the Reading</a>
+            <a class="reading-dl-btn" href="Rachels - Utilitarianism.pdf" download>Rachels - Utilitarianism.pdf</a>
             <button class="reading-quiz-btn" onclick="startReadingQuiz('util')">Quiz Me on My Theory</button>
           </div>
           <div class="reading-quiz" id="quizUtil"></div>
@@ -2882,7 +2879,7 @@ main {
             <p style="margin-top:10px;"><strong>Key concepts:</strong> Categorical Imperative, hypothetical vs categorical imperatives, maxim, universal law, treating as ends, absolute moral rules</p>
           </div>
           <div class="reading-btns">
-            <a class="reading-dl-btn" href="3 - Issues Analysis/Rachels - Deontology.pdf" download>Download the Reading</a>
+            <a class="reading-dl-btn" href="Rachels - Deontology.pdf" download>Rachels - Deontology.pdf</a>
             <button class="reading-quiz-btn" onclick="startReadingQuiz('deon')">Quiz Me on My Theory</button>
           </div>
           <div class="reading-quiz" id="quizDeon"></div>
@@ -2907,7 +2904,7 @@ main {
             <p style="margin-top:10px;"><strong>Key concepts:</strong> virtue, vice, Golden Mean, eudaimonia, character, habitual action, courage, generosity, honesty</p>
           </div>
           <div class="reading-btns">
-            <a class="reading-dl-btn" href="3 - Issues Analysis/Rachels - Virtue Ethics.pdf" download>Download the Reading</a>
+            <a class="reading-dl-btn" href="Rachels - Virtue Ethics.pdf" download>Rachels - Virtue Ethics.pdf</a>
             <button class="reading-quiz-btn" onclick="startReadingQuiz('virt')">Quiz Me on My Theory</button>
           </div>
           <div class="reading-quiz" id="quizVirt"></div>
@@ -2932,7 +2929,7 @@ main {
             <p style="margin-top:10px;"><strong>Key concepts:</strong> rational self-interest, ethical egoism vs psychological egoism, enlightened egoism, the altruism problem, individual rights</p>
           </div>
           <div class="reading-btns">
-            <a class="reading-dl-btn" href="3 - Issues Analysis/Rachels - Egoism.pdf" download>Download the Reading</a>
+            <a class="reading-dl-btn" href="Rachels - Egoism.pdf" download>Rachels - Egoism.pdf</a>
             <button class="reading-quiz-btn" onclick="startReadingQuiz('ego')">Quiz Me on My Theory</button>
           </div>
           <div class="reading-quiz" id="quizEgo"></div>
@@ -3066,7 +3063,6 @@ main {
     </div>
   </div>
 </div>
-<button id="muteBtn" class="mute-button" onclick="toggleMute()">&#x1F50A;</button>
 
 <!-- PHASE 6: DEEP DIVE (Close Reading) -->
 <div id="phase6" class="phase">
@@ -4033,7 +4029,6 @@ let theoryScores = { util: 0, deon: 0, virt: 0, ego: 0 };
 let questionAnswers = {};
 let reflectionPicks = [];
 let deepDiveAnswers = {};
-let courtMusicPlaying = false;
 
 // Additional state for persistence
 let selectedDilemmaIndex = -1;
@@ -5134,7 +5129,7 @@ function proceedToCourt() {
   goToPhase('5');
 }
 
-// ============ COURTROOM (PHASE 5) + TONE.JS ============
+// ============ COURTROOM (PHASE 5) ============
 function playBellSound() {
   var bell = new Tone.MetalSynth({
     frequency: 140,
@@ -5159,7 +5154,6 @@ function enterCourt() {
   saveState();
   playBellSound();
   buildAdvisorCards();
-  setTimeout(function() { startCourtMusic(); }, 2000);
 }
 
 function buildAdvisorCards() {
@@ -5218,115 +5212,9 @@ function toggleKeywordDef(id) {
   }
 }
 
-function startCourtMusic() {
-  try {
-    Tone.start().then(function() {
-      var vol = new Tone.Volume(-8).toDestination();
-
-      var trumpet = new Tone.AMSynth({
-        harmonicity: 2,
-        oscillator: { type: 'square4' },
-        envelope: { attack: 0.05, decay: 0.3, sustain: 0.5, release: 0.6 },
-        modulation: { type: 'sine' },
-        modulationEnvelope: { attack: 0.1, decay: 0.2, sustain: 0.3, release: 0.4 }
-      }).connect(vol);
-
-      var bass = new Tone.Synth({
-        oscillator: { type: 'triangle' },
-        envelope: { attack: 0.01, decay: 0.3, sustain: 0.3, release: 0.5 }
-      }).connect(new Tone.Volume(-14).toDestination());
-
-      var snare = new Tone.NoiseSynth({
-        noise: { type: 'white' },
-        envelope: { attack: 0.001, decay: 0.12, sustain: 0 }
-      }).connect(new Tone.Volume(-18).toDestination());
-
-      var melody = [
-        { time: '0:0:0', note: 'C4', dur: '8n' },
-        { time: '0:0:2', note: 'E4', dur: '8n' },
-        { time: '0:1:0', note: 'G4', dur: '8n' },
-        { time: '0:1:2', note: 'C5', dur: '4n' },
-        { time: '0:2:2', note: 'C5', dur: '8n' },
-        { time: '0:3:0', note: 'B4', dur: '8n' },
-        { time: '0:3:2', note: 'A4', dur: '8n' },
-        { time: '1:0:0', note: 'G4', dur: '4n' },
-        { time: '1:1:0', note: 'E4', dur: '8n' },
-        { time: '1:1:2', note: 'F4', dur: '8n' },
-        { time: '1:2:0', note: 'G4', dur: '8n' },
-        { time: '1:2:2', note: 'A4', dur: '8n' },
-        { time: '1:3:0', note: 'G4', dur: '8n' },
-        { time: '1:3:2', note: 'E4', dur: '8n' },
-        { time: '2:0:0', note: 'C4', dur: '8n' },
-        { time: '2:0:2', note: 'G4', dur: '8n' },
-        { time: '2:1:0', note: 'C5', dur: '8n' },
-        { time: '2:1:2', note: 'E5', dur: '4n.' },
-        { time: '2:3:0', note: 'D5', dur: '8n' },
-        { time: '2:3:2', note: 'C5', dur: '8n' },
-        { time: '3:0:0', note: 'B4', dur: '8n' },
-        { time: '3:0:2', note: 'A4', dur: '8n' },
-        { time: '3:1:0', note: 'G4', dur: '8n' },
-        { time: '3:1:2', note: 'F4', dur: '8n' },
-        { time: '3:2:0', note: 'E4', dur: '8n' },
-        { time: '3:2:2', note: 'D4', dur: '8n' },
-        { time: '3:3:0', note: 'C4', dur: '2n' }
-      ];
-
-      var bassLine = [
-        { time: '0:0:0', note: 'C2', dur: '2n' },
-        { time: '0:2:0', note: 'G2', dur: '2n' },
-        { time: '1:0:0', note: 'C3', dur: '2n' },
-        { time: '1:2:0', note: 'F2', dur: '2n' },
-        { time: '2:0:0', note: 'C2', dur: '2n' },
-        { time: '2:2:0', note: 'E2', dur: '2n' },
-        { time: '3:0:0', note: 'G2', dur: '2n' },
-        { time: '3:2:0', note: 'C2', dur: '2n' }
-      ];
-
-      var snareHits = ['0:1:0','0:3:0','1:1:0','1:3:0','2:1:0','2:3:0','3:1:0','3:3:0'];
-
-      new Tone.Part(function(time, value) {
-        trumpet.triggerAttackRelease(value.note, value.dur, time);
-      }, melody).start(0);
-
-      new Tone.Part(function(time, value) {
-        bass.triggerAttackRelease(value.note, value.dur, time);
-      }, bassLine).start(0);
-
-      new Tone.Part(function(time) {
-        snare.triggerAttackRelease('16n', time);
-      }, snareHits.map(function(t) { return { time: t }; })).start(0);
-
-      Tone.Transport.bpm.value = 138;
-      Tone.Transport.loop = true;
-      Tone.Transport.loopStart = 0;
-      Tone.Transport.loopEnd = '4:0:0';
-      Tone.Transport.start();
-
-      courtMusicPlaying = true;
-      document.getElementById('muteBtn').style.display = 'flex';
-    });
-  } catch (e) {
-    console.log('Tone.js not available:', e);
-  }
-}
-
-function stopCourtMusic() {
-  try {
-    if (courtMusicPlaying) {
-      Tone.Transport.stop();
-      Tone.Transport.cancel();
-      courtMusicPlaying = false;
-      document.getElementById('muteBtn').style.display = 'none';
-    }
-  } catch(e) {}
-}
-
-function toggleMute() {
-  try {
-    Tone.Destination.mute = !Tone.Destination.mute;
-    document.getElementById('muteBtn').textContent = Tone.Destination.mute ? '\u{1F507}' : '\u{1F50A}';
-  } catch(e) {}
-}
+function startCourtMusic() {}
+function stopCourtMusic() {}
+function toggleMute() {}
 
 // ============ DEEP DIVE (PHASE 6) ============
 // Stimulus-aware questions: each passage gets a question that names the student's chosen stimulus
@@ -5738,115 +5626,8 @@ function buildEssayPlanIfNeeded() {
 }
 
 // ============ TITLE PAGE ============
-var titleMusicParts = [];
-var titleMusicStarted = false;
-
-// Eye of the Tiger - iconic riff approximation in Tone.js
-function startTitleMusic() {
-  if (titleMusicStarted) return;
-  titleMusicStarted = true;
-
-  Tone.start().then(function() {
-    var vol = new Tone.Volume(-6).toDestination();
-
-    // Power chord synth for the main riff
-    var guitar = new Tone.PolySynth(Tone.FMSynth, {
-      harmonicity: 2,
-      modulationIndex: 1.5,
-      envelope: { attack: 0.01, decay: 0.2, sustain: 0.3, release: 0.3 },
-      modulation: { type: 'square' },
-      volume: -4
-    }).connect(vol);
-
-    // Bass
-    var bass = new Tone.MonoSynth({
-      oscillator: { type: 'sawtooth' },
-      envelope: { attack: 0.02, decay: 0.3, sustain: 0.4, release: 0.2 },
-      filterEnvelope: { attack: 0.01, decay: 0.1, sustain: 0.5, release: 0.2, baseFrequency: 200, octaves: 2 },
-      volume: -8
-    }).connect(vol);
-
-    // Drums
-    var kick = new Tone.MembraneSynth({ volume: -6 }).connect(vol);
-    var snare = new Tone.NoiseSynth({
-      noise: { type: 'white' },
-      envelope: { attack: 0.001, decay: 0.15, sustain: 0 },
-      volume: -12
-    }).connect(vol);
-
-    Tone.Transport.bpm.value = 108;
-
-    // Main riff pattern (Am - F - G power chords feel)
-    var riffPart = new Tone.Part(function(time, note) {
-      guitar.triggerAttackRelease(note.notes, note.dur, time);
-    }, [
-      { time: '0:0:0', notes: ['C4','E4'], dur: '16n' },
-      { time: '0:0:2', notes: ['C4','E4'], dur: '16n' },
-      { time: '0:1:0', notes: ['C4','E4'], dur: '16n' },
-      { time: '0:1:2', notes: ['D4','F4'], dur: '8n' },
-      { time: '0:2:0', notes: ['E4','G4'], dur: '8n' },
-      { time: '0:2:2', notes: ['D4','F4'], dur: '8n' },
-      { time: '0:3:0', notes: ['C4','E4'], dur: '4n' },
-      { time: '1:0:0', notes: ['C4','E4'], dur: '16n' },
-      { time: '1:0:2', notes: ['C4','E4'], dur: '16n' },
-      { time: '1:1:0', notes: ['C4','E4'], dur: '16n' },
-      { time: '1:1:2', notes: ['D4','F4'], dur: '8n' },
-      { time: '1:2:0', notes: ['G4','B4'], dur: '8n' },
-      { time: '1:2:2', notes: ['F4','A4'], dur: '8n' },
-      { time: '1:3:0', notes: ['E4','G4'], dur: '4n' },
-    ]);
-    riffPart.loop = true;
-    riffPart.loopEnd = '2m';
-
-    var bassPart = new Tone.Part(function(time, note) {
-      bass.triggerAttackRelease(note.note, note.dur, time);
-    }, [
-      { time: '0:0:0', note: 'C2', dur: '4n' },
-      { time: '0:1:0', note: 'C2', dur: '4n' },
-      { time: '0:2:0', note: 'F2', dur: '4n' },
-      { time: '0:3:0', note: 'G2', dur: '4n' },
-      { time: '1:0:0', note: 'C2', dur: '4n' },
-      { time: '1:1:0', note: 'C2', dur: '4n' },
-      { time: '1:2:0', note: 'G2', dur: '4n' },
-      { time: '1:3:0', note: 'F2', dur: '4n' },
-    ]);
-    bassPart.loop = true;
-    bassPart.loopEnd = '2m';
-
-    var drumPart = new Tone.Part(function(time, note) {
-      if (note.type === 'kick') kick.triggerAttackRelease('C1', '8n', time);
-      else snare.triggerAttackRelease('8n', time);
-    }, [
-      { time: '0:0:0', type: 'kick' },
-      { time: '0:1:0', type: 'snare' },
-      { time: '0:2:0', type: 'kick' },
-      { time: '0:2:2', type: 'kick' },
-      { time: '0:3:0', type: 'snare' },
-      { time: '1:0:0', type: 'kick' },
-      { time: '1:1:0', type: 'snare' },
-      { time: '1:2:0', type: 'kick' },
-      { time: '1:2:2', type: 'kick' },
-      { time: '1:3:0', type: 'snare' },
-    ]);
-    drumPart.loop = true;
-    drumPart.loopEnd = '2m';
-
-    riffPart.start(0);
-    bassPart.start(0);
-    drumPart.start(0);
-
-    titleMusicParts = [riffPart, bassPart, drumPart];
-
-    Tone.Transport.start();
-  });
-}
-
-function stopTitleMusic() {
-  titleMusicParts.forEach(function(p) { p.stop(); p.dispose(); });
-  titleMusicParts = [];
-  Tone.Transport.stop();
-  titleMusicStarted = false;
-}
+function startTitleMusic() {}
+function stopTitleMusic() {}
 
 // Jester image slideshow — simple timer swap
 var jesterSources = ['Jester1.png', 'Jester3.png', 'Jester2.png', 'Jester4.png', 'Jester5.png'];

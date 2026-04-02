@@ -1520,6 +1520,57 @@ main {
   }
 }
 
+/* ============ SAVE PDF BUTTON ============ */
+.save-pdf-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  background: #7d4a8d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.save-pdf-btn:hover {
+  background: #5a3366;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(125, 74, 141, 0.4);
+}
+.save-pdf-btn .pdf-icon {
+  font-size: 14px;
+}
+.start-fresh-btn {
+  position: fixed;
+  top: 12px;
+  left: 210px;
+  z-index: 200;
+  background: transparent;
+  color: #999;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  display: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.2s ease;
+}
+.start-fresh-btn:hover {
+  color: #c0392b;
+  border-color: #c0392b;
+}
+
 /* ============ JESTER MASCOT ANIMATIONS ============ */
 .jester-mascot {
   position: fixed;
@@ -1792,7 +1843,7 @@ main {
 
 @media print {
   /* Hide everything except the essay plan */
-  .progress-bar, .mute-button, .no-print {
+  .progress-bar, .mute-button, .no-print, .save-pdf-btn, .start-fresh-btn {
     display: none !important;
   }
 
@@ -1857,9 +1908,382 @@ main {
     display: none; /* hide the instruction paragraph in print */
   }
 }
+
+/* ============ TITLE RESOURCE BUTTONS ============ */
+.title-resources {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.title-res-btn {
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  border: 2px solid #7d4a8d;
+  border-radius: 10px;
+  background: rgba(125, 74, 141, 0.15);
+  color: #c9b5d8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.title-res-btn:hover {
+  background: #7d4a8d;
+  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(125, 74, 141, 0.4);
+}
+
+/* ============ TASKSHEET EXPLAINED ============ */
+.tasksheet-page {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0d0a12 100%);
+  padding: 40px 20px;
+  color: #e0d5c9;
+}
+
+.tasksheet-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ts-step {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.ts-step.ts-active {
+  display: block;
+}
+
+.ts-progress {
+  text-align: center;
+  color: #7d4a8d;
+  font-size: 13px;
+  margin-bottom: 16px;
+  font-family: Georgia, serif;
+}
+
+.ts-heading {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  color: #d4a574;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.ts-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #d5cec4;
+  margin-bottom: 16px;
+  font-family: Georgia, serif;
+}
+
+.ts-highlight-box {
+  background: rgba(212, 165, 116, 0.12);
+  border: 2px solid #d4a574;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+}
+
+.ts-highlight-box h4 {
+  color: #d4a574;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.ts-highlight-box p, .ts-highlight-box li {
+  color: #d5cec4;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.ts-highlight-box ul {
+  margin: 8px 0 0 18px;
+  padding: 0;
+}
+
+.ts-highlight-box li {
+  margin-bottom: 4px;
+}
+
+.ts-warning {
+  background: rgba(200, 50, 50, 0.15);
+  border: 2px solid #c83232;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  color: #f0a0a0;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.ts-criteria-tag {
+  display: inline-block;
+  background: #7d4a8d;
+  color: white;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 2px 3px;
+  font-family: Georgia, serif;
+}
+
+.ts-exemplar-box {
+  background: rgba(125, 74, 141, 0.1);
+  border: 2px solid #7d4a8d;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 16px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d5cec4;
+  display: none;
+}
+
+.ts-exemplar-box h4 {
+  color: #c9b5d8;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.ts-exemplar-box p {
+  margin-bottom: 12px;
+}
+
+.ts-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+/* ============ ESSENTIAL READINGS ============ */
+.readings-page {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0d0a12 100%);
+  padding: 40px 20px;
+  color: #e0d5c9;
+}
+
+.readings-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.readings-heading {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  color: #d4a574;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.readings-subtitle {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: #c9b5d8;
+  margin-bottom: 28px;
+  text-align: center;
+  font-style: italic;
+}
+
+.reading-card {
+  background: rgba(125, 74, 141, 0.1);
+  border: 2px solid #7d4a8d;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.reading-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reading-card-header:hover {
+  background: rgba(125, 74, 141, 0.2);
+}
+
+.reading-card-title {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #d4a574;
+}
+
+.reading-card-arrow {
+  color: #d4a574;
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.reading-card.expanded .reading-card-arrow {
+  transform: rotate(180deg);
+}
+
+.reading-card-body {
+  display: none;
+  padding: 0 20px 20px;
+}
+
+.reading-card.expanded .reading-card-body {
+  display: block;
+}
+
+.reading-overview {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d5cec4;
+  margin-bottom: 16px;
+}
+
+.reading-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reading-dl-btn, .reading-quiz-btn {
+  padding: 10px 18px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.reading-dl-btn {
+  background: #d4a574;
+  color: #1a0e24;
+  border: none;
+}
+
+.reading-dl-btn:hover {
+  background: #e0b584;
+  transform: scale(1.03);
+}
+
+.reading-quiz-btn {
+  background: transparent;
+  color: #c9b5d8;
+  border: 2px solid #7d4a8d;
+}
+
+.reading-quiz-btn:hover {
+  background: #7d4a8d;
+  color: white;
+}
+
+/* Quiz within readings */
+.reading-quiz {
+  margin-top: 16px;
+  display: none;
+}
+
+.reading-quiz.quiz-active {
+  display: block;
+}
+
+.rq-question {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: #d4a574;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.rq-progress {
+  font-size: 12px;
+  color: #7d4a8d;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
+}
+
+.rq-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: rgba(125, 74, 141, 0.1);
+  border: 2px solid rgba(125, 74, 141, 0.3);
+  border-radius: 8px;
+  color: #d5cec4;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.rq-option:hover {
+  border-color: #7d4a8d;
+  background: rgba(125, 74, 141, 0.2);
+}
+
+.rq-option.rq-correct {
+  border-color: #4a9d5b;
+  background: rgba(74, 157, 91, 0.2);
+  color: #a0e0a0;
+}
+
+.rq-option.rq-wrong {
+  border-color: #c83232;
+  background: rgba(200, 50, 50, 0.15);
+  color: #f0a0a0;
+}
+
+.rq-option.rq-dimmed {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.rq-result {
+  text-align: center;
+  padding: 16px;
+  font-family: Georgia, serif;
+}
+
+.rq-result h4 {
+  color: #d4a574;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.rq-result p {
+  color: #d5cec4;
+  font-size: 14px;
+}
 </style>
 </head>
 <body>
+
+<button class="save-pdf-btn" id="savePdfBtn" onclick="saveAsPdf()"><span class="pdf-icon">&#x1F4BE;</span> SAVE MY WORK AS PDF</button>
+<button class="start-fresh-btn" id="startFreshBtn" onclick="if(confirm('This will erase all your saved progress. Are you sure?')) clearSavedState();">Start Fresh</button>
 
 <nav class="progress-bar">
   <div class="progress-steps">
@@ -1915,6 +2339,17 @@ main {
       <button class="title-btn title-btn-sage" onclick="startTitleMusic(); goToPhase('0sage')">SEEK THE SAGE<br><span style="font-size:13px;font-weight:normal;text-transform:none;">(explain the assignment)</span></button>
     </div>
     <p class="title-music-note">Click either button to begin (sound will play)</p>
+    <div class="title-resources">
+      <a class="title-res-btn" href="3 - Issues Analysis/Year 11 Issues Analysis Sem 1 2026.docx" download>Tasksheet</a>
+      <button class="title-res-btn" onclick="goToPhase('0tasksheet')">Tasksheet Explained</button>
+      <button class="title-res-btn" onclick="goToPhase('0readings')">Essential Readings for Your Theories</button>
+    </div>
+    <div id="resumePrompt" style="display:none; margin-top:20px; background:rgba(212,165,116,0.15); border:2px solid #d4a574; border-radius:12px; padding:16px 24px; max-width:400px;">
+      <p style="color:#d4a574; font-size:15px; font-weight:bold; margin-bottom:8px;">Welcome back!</p>
+      <p style="color:#c9b5d8; font-size:14px; margin-bottom:12px;">You have saved progress. Pick up where you left off?</p>
+      <button style="background:#d4a574; color:#1a0e24; border:none; border-radius:8px; padding:10px 24px; font-size:14px; font-weight:bold; cursor:pointer; margin-right:8px;" onclick="restoreState()">RESUME</button>
+      <button style="background:transparent; color:#c9b5d8; border:1px solid #7d4a8d; border-radius:8px; padding:10px 16px; font-size:13px; cursor:pointer;" onclick="document.getElementById('resumePrompt').style.display='none';">Start Over</button>
+    </div>
   </div>
 </div>
 
@@ -2142,6 +2577,370 @@ main {
       <div class="sage-nav">
         <button id="sagePrev" onclick="navigateSage(-1)" disabled>&larr; Back</button>
         <button id="sageNext" onclick="navigateSage(1)">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE 0TASKSHEET: TASKSHEET EXPLAINED -->
+<div id="phase0tasksheet" class="phase">
+  <div class="tasksheet-page">
+    <div class="tasksheet-container">
+      <div class="ts-progress" id="tsProgress">Step 1 of 9</div>
+
+      <!-- TS STEP 1: Stimulus -->
+      <div class="ts-step ts-active" id="ts1">
+        <h2 class="ts-heading">Step 1: Choose Your Stimulus</h2>
+        <div class="ts-text">
+          <p>The very first thing you need to do is <strong>choose a stimulus</strong> &mdash; a short film, documentary, or text that presents a real ethical situation.</p>
+          <p style="margin-top:12px;">This is the foundation of your entire essay. Everything you write flows from this choice.</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>What to look for in a stimulus:</h4>
+          <ul>
+            <li>A clear <strong>moral conflict</strong> &mdash; someone faces a tough choice</li>
+            <li>It should make you think &ldquo;Was that the right thing to do?&rdquo;</li>
+            <li>You need to feel engaged enough to write 800 words about it</li>
+          </ul>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Available stimuli include:</h4>
+          <p>Short films like <em>Two and Two</em>, <em>Snack Attack</em>, <em>Alike</em>, <em>The Present</em>, <em>2081</em>, and documentaries like <em>The House I Live In</em> and <em>Louis Theroux: Inside the Manosphere</em>. You&rsquo;ll get to watch and choose during the game.</p>
+        </div>
+        <div class="ts-nav">
+          <button class="btn" onclick="goToPhase('0')" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back to Title</button>
+          <button class="btn" onclick="advanceTasksheet(2)">NEXT</button>
+        </div>
+      </div>
+
+      <!-- TS STEP 2: Moral Dilemma -->
+      <div class="ts-step" id="ts2">
+        <h2 class="ts-heading">Step 2: Identify the Moral Dilemma</h2>
+        <div class="ts-text">
+          <p>Once you&rsquo;ve chosen your stimulus, you need to <strong>write down the moral dilemma</strong> &mdash; the core ethical conflict at the heart of the story.</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>A moral dilemma is:</h4>
+          <p>A situation where there is genuine disagreement about what the <strong>right thing to do</strong> is. It&rsquo;s not just &ldquo;something bad happened&rdquo; &mdash; it&rsquo;s a conflict between competing moral values.</p>
+          <ul>
+            <li><strong>Good example:</strong> &ldquo;Is it morally justified for a government to enforce equality by handicapping its strongest and smartest citizens?&rdquo;</li>
+            <li><strong>Weak example:</strong> &ldquo;Harrison Bergeron is about equality.&rdquo;</li>
+          </ul>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Frame it as a question:</h4>
+          <p>The best moral dilemmas are phrased as questions that two reasonable people could disagree on. This sets up the debate between your two theories.</p>
+        </div>
+        <div class="ts-nav">
+          <button class="btn" onclick="advanceTasksheet(1)" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back</button>
+          <button class="btn" onclick="advanceTasksheet(3)">NEXT</button>
+        </div>
+      </div>
+
+      <!-- TS STEP 3: Synthesise into a Case -->
+      <div class="ts-step" id="ts3">
+        <h2 class="ts-heading">Step 3: Synthesise Into a Case</h2>
+        <div class="ts-text">
+          <p>Now comes the creative part. You need to <strong>synthesise that moral dilemma into a case that you, as a ruler, must judge.</strong></p>
+          <p style="margin-top:12px;">You&rsquo;re not just writing an essay &mdash; you&rsquo;re a monarch presiding over a moral dispute in your kingdom. The stimulus becomes the case brought before your court.</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Your introduction should:</h4>
+          <ul>
+            <li>Briefly describe the situation from the stimulus</li>
+            <li>State the moral dilemma clearly</li>
+            <li>Explain that you will consult two philosophical advisors to help you judge</li>
+            <li>Name your two theories</li>
+          </ul>
+        </div>
+        <p class="ts-text"><strong>Remember:</strong> This is ~100 words. Be concise. Set the scene, state the dilemma, name your advisors.</p>
+        <div class="ts-nav">
+          <button class="btn" onclick="advanceTasksheet(2)" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back</button>
+          <button class="btn" onclick="advanceTasksheet(4)">NEXT</button>
+        </div>
+      </div>
+
+      <!-- TS STEP 4: Theories & Philosophers -->
+      <div class="ts-step" id="ts4">
+        <h2 class="ts-heading">Step 4: Outline Two Theories</h2>
+        <div class="ts-text">
+          <p>This is crucial. You don&rsquo;t just write about &ldquo;Utilitarianism&rdquo; or &ldquo;Deontology&rdquo; in the abstract. You must present each theory <strong>according to specific philosophers.</strong></p>
+        </div>
+        <div class="ts-warning">You CANNOT just say &ldquo;Utilitarianism says...&rdquo; &mdash; you must say &ldquo;According to Mill...&rdquo; or &ldquo;As Rachels explains...&rdquo;</div>
+        <div class="ts-highlight-box">
+          <h4>Philosophers for each theory:</h4>
+          <ul>
+            <li><strong>Utilitarianism:</strong> Mill, Singer, or Rachels</li>
+            <li><strong>Deontology:</strong> Kant, or Rachels</li>
+            <li><strong>Virtue Ethics:</strong> Aristotle, or Rachels</li>
+            <li><strong>Ethical Egoism:</strong> Rand, or Rachels</li>
+          </ul>
+          <p style="margin-top:10px;"><strong>Tip:</strong> James Rachels can be used for ANY theory &mdash; his textbook covers all four. So if you&rsquo;re stuck, Rachels is always a safe bet alongside the main philosopher.</p>
+        </div>
+        <div class="ts-nav">
+          <button class="btn" onclick="advanceTasksheet(3)" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back</button>
+          <button class="btn" onclick="advanceTasksheet(5)">NEXT</button>
+        </div>
+      </div>
+
+      <!-- TS STEP 5: Explaining Theories (Key Concepts & Criteria) -->
+      <div class="ts-step" id="ts5">
+        <h2 class="ts-heading">Step 5: Explain the Logic of Each Theory</h2>
+        <div class="ts-text">
+          <p>Each theory section is ~200 words. You must <strong>outline the logic of the theory in a way that leads to its key concepts.</strong> This is what the assessment criteria are looking for:</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Assessment Criteria</h4>
+          <p><span class="ts-criteria-tag">KU1</span> Knowledge and understanding of philosophical issues, concepts, and positions</p>
+          <p style="margin-top:8px;"><span class="ts-criteria-tag">R1</span> Reasoning using evidence to support philosophical claims</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>What this means in practice:</h4>
+          <p>Don&rsquo;t just name-drop concepts. <strong>Build the argument step by step:</strong></p>
+          <ul>
+            <li>Start with the theory&rsquo;s core principle (e.g., &ldquo;Mill argues that the right action is the one that produces the greatest happiness for the greatest number&rdquo;)</li>
+            <li>Explain the key concept that flows from this (e.g., &ldquo;This is known as the Principle of Utility&rdquo;)</li>
+            <li>Show how one concept leads to the next (e.g., &ldquo;From this principle, we can see that consequences are what matter, not intentions&rdquo;)</li>
+            <li>Each concept should feel like a natural step in the argument, not a random fact</li>
+          </ul>
+        </div>
+        <p class="ts-text"><strong>Think of it as building a chain:</strong> Principle &rarr; Key Concept &rarr; Next Concept &rarr; Application. Each link should connect logically.</p>
+        <div class="ts-nav">
+          <button class="btn" onclick="advanceTasksheet(4)" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back</button>
+          <button class="btn" onclick="advanceTasksheet(6)">NEXT</button>
+        </div>
+      </div>
+
+      <!-- TS STEP 6: Application -->
+      <div class="ts-step" id="ts6">
+        <h2 class="ts-heading">Step 6: Apply Each Theory to the Case</h2>
+        <div class="ts-text">
+          <p>After explaining each theory, you need to <strong>apply it directly to the moral dilemma</strong> from your stimulus. This is where the theory meets reality.</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Assessment Criteria</h4>
+          <p><span class="ts-criteria-tag">CA1</span> Critical analysis of the strengths and weaknesses of philosophical positions</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>What good application looks like:</h4>
+          <ul>
+            <li>Name the specific characters or situations from the stimulus</li>
+            <li>Show what the theory <em>would say</em> about the specific moral choice</li>
+            <li>Use the key concepts you&rsquo;ve already explained</li>
+            <li>Make it clear you&rsquo;re not just summarising the film &mdash; you&rsquo;re using the theory as a lens</li>
+          </ul>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Example:</h4>
+          <p>&ldquo;A utilitarian like Mill would argue that the Handicapper General&rsquo;s system in 2081 fails the Principle of Utility because the total happiness in society is <em>reduced</em>, not increased &mdash; people are suffering under their handicaps, and the only moment of genuine joy (Harrison&rsquo;s dance) is immediately destroyed.&rdquo;</p>
+        </div>
+        <div class="ts-nav">
+          <button class="btn" onclick="advanceTasksheet(5)" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back</button>
+          <button class="btn" onclick="advanceTasksheet(7)">NEXT</button>
+        </div>
+      </div>
+
+      <!-- TS STEP 7: Objections -->
+      <div class="ts-step" id="ts7">
+        <h2 class="ts-heading">Step 7: Provide Objections</h2>
+        <div class="ts-text">
+          <p>The Strengths &amp; Weaknesses section (~200 words) is the hardest and most important. You need to <strong>critique each theory within the context of the case.</strong></p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Assessment Criteria</h4>
+          <p><span class="ts-criteria-tag">CA1</span> Critical analysis of the strengths and weaknesses of philosophical positions</p>
+          <p style="margin-top:6px;"><span class="ts-criteria-tag">R1</span> Reasoning using evidence to support philosophical claims</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>How to write strong objections:</h4>
+          <ul>
+            <li>Be <em>specific</em> to your case &mdash; don&rsquo;t just list generic weaknesses</li>
+            <li>Use phrases like: &ldquo;See, this is the problem with Deontology &mdash; it is too rigid&rdquo; or &ldquo;The weakness of Utilitarianism here is that it ignores individual rights&rdquo;</li>
+            <li>Acknowledge what each theory gets <em>right</em> as well as what it gets wrong</li>
+            <li>Show that you understand <em>why</em> the theory fails in this particular situation</li>
+          </ul>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Example:</h4>
+          <p>&ldquo;However, the problem with the deontological position is its rigidity. Kant would say we have an absolute duty not to use people as mere means &mdash; but in 2081, the government claims it has a duty to maintain social order. When two duties conflict, Deontology offers no clear way to decide which takes priority.&rdquo;</p>
+        </div>
+        <div class="ts-nav">
+          <button class="btn" onclick="advanceTasksheet(6)" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back</button>
+          <button class="btn" onclick="advanceTasksheet(8)">NEXT</button>
+        </div>
+      </div>
+
+      <!-- TS STEP 8: Final Position -->
+      <div class="ts-step" id="ts8">
+        <h2 class="ts-heading">Step 8: Your Verdict</h2>
+        <div class="ts-text">
+          <p>Your conclusion (~100 words) is where you, the ruler, <strong>make your judgement.</strong> But this is not just an opinion &mdash; your position must be <strong>rationally based on what the theories have offered.</strong></p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Assessment Criteria</h4>
+          <p><span class="ts-criteria-tag">C1</span> Communication of philosophical ideas with clarity</p>
+          <p style="margin-top:6px;"><span class="ts-criteria-tag">C2</span> Use of appropriate philosophical terminology</p>
+        </div>
+        <div class="ts-highlight-box">
+          <h4>Your verdict must:</h4>
+          <ul>
+            <li><strong>Refer back to the theories</strong> &mdash; explain which advisor was more convincing and <em>why</em></li>
+            <li><strong>Be grounded in reasoning</strong> &mdash; not just &ldquo;I think X is right&rdquo; but &ldquo;Given the strengths of Theory A and the weaknesses of Theory B, I rule that...&rdquo;</li>
+            <li><strong>Make a clear ruling</strong> about the moral dilemma</li>
+            <li>Optionally: describe what happens next in your kingdom as a result of the ruling</li>
+          </ul>
+        </div>
+        <div class="ts-nav">
+          <button class="btn" onclick="advanceTasksheet(7)" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back</button>
+          <button class="btn" onclick="advanceTasksheet(9)">NEXT</button>
+        </div>
+      </div>
+
+      <!-- TS STEP 9: Exemplar -->
+      <div class="ts-step" id="ts9">
+        <h2 class="ts-heading">Example Structure</h2>
+        <div class="ts-text">
+          <p>Below is an AI-generated example showing what a completed essay <em>structure</em> looks like. Use it to understand the flow &mdash; not as a model of quality.</p>
+        </div>
+        <div class="ts-warning">THIS IS AN AI-WRITTEN EXEMPLAR AND SHOULD NOT BE CONSIDERED GOOD WORK. THIS IS FOR STRUCTURE ONLY.</div>
+        <button class="btn" onclick="document.getElementById('tsExemplar').style.display=document.getElementById('tsExemplar').style.display==='block'?'none':'block'" style="margin-bottom:16px;">SHOW EXAMPLE STRUCTURE</button>
+        <div class="ts-exemplar-box" id="tsExemplar">
+          <h4>Introduction (~100 words)</h4>
+          <p>In the short film <em>2081</em>, the government enforces total equality by handicapping anyone with above-average abilities. The moral dilemma at the heart of this case is: <strong>does the government have the right to limit individual excellence for the sake of social harmony?</strong> As the ruler of this court, I will consult two philosophical advisors. My first advisor, representing <strong>Utilitarianism</strong> (as outlined by Mill and Rachels), will examine whether this system maximises happiness. My second advisor, representing <strong>Deontology</strong> (as outlined by Kant and Rachels), will consider whether it respects people&rsquo;s fundamental rights and dignity.</p>
+
+          <h4>Theory 1: Utilitarianism (~200 words)</h4>
+          <p>My first advisor explains that according to John Stuart Mill, the morally right action is the one that produces <strong>the greatest happiness for the greatest number</strong>. This is known as the <strong>Principle of Utility</strong>. Mill distinguishes between higher pleasures (intellectual, creative) and lower pleasures (physical, passive), arguing that higher pleasures are more valuable. As Rachels explains, utilitarianism demands that we consider the <strong>consequences</strong> of actions impartially &mdash; everyone&rsquo;s happiness counts equally.</p>
+          <p>Applying this to the case of 2081, my utilitarian advisor argues that the handicapping system <strong>fails the Principle of Utility</strong>. George Bergeron suffers constant pain from his earpiece; ballerinas dance clumsily under weights; brilliant minds cannot hold a thought. The total suffering in society has <em>increased</em>, not decreased. Furthermore, by destroying higher pleasures (art, intellect, beauty), the government has eliminated precisely the forms of happiness Mill values most. Harrison&rsquo;s brief, beautiful dance was the only moment of genuine higher pleasure in the film &mdash; and it was immediately destroyed.</p>
+
+          <h4>Theory 2: Deontology (~200 words)</h4>
+          <p>In contrast, my second advisor explains that Immanuel Kant argues morality is about <strong>duty and universal moral rules</strong>, not consequences. The <strong>Categorical Imperative</strong> states that we should only act according to rules we could will to be universal laws. Crucially, Kant insists we must always treat people as <strong>ends in themselves</strong>, never merely as means to an end. As Rachels notes, Kant believed that rational beings have inherent dignity that cannot be traded away for any benefit.</p>
+          <p>Applying this to 2081, my deontological advisor argues that the handicapping system treats citizens as <strong>mere means</strong> to the government&rsquo;s goal of enforced equality. George is not respected as a rational being &mdash; his very ability to think is deliberately disrupted. The system cannot pass the Categorical Imperative: we could not rationally will a universal law that says &ldquo;destroy everyone&rsquo;s best qualities.&rdquo; The Handicapper General uses people as tools for social policy, violating their fundamental dignity.</p>
+
+          <h4>Strengths &amp; Weaknesses (~200 words)</h4>
+          <p>Both advisors make compelling points, but each has weaknesses in this case. The strength of the utilitarian approach is that it clearly demonstrates the <strong>measurable suffering</strong> the system causes &mdash; we can see the pain, the lost potential, the destroyed beauty. However, the problem with Utilitarianism here is that it <strong>could potentially justify</strong> the handicapping system <em>if</em> the majority actually were happier as a result. If most people feel more comfortable without the pressure of competing with exceptional individuals, a strict utilitarian calculation might support the system. This reveals a troubling implication: Utilitarianism might sacrifice individual rights for majority comfort.</p>
+          <p>The deontological approach is strong because it <strong>absolutely protects individual dignity</strong> &mdash; no amount of social benefit can justify treating Harrison as a mere means. However, the problem with Deontology is its <strong>rigidity</strong>. The government might claim it has a <em>duty</em> to maintain social order, and when two duties conflict (duty to individual freedom vs. duty to social stability), Kant offers no clear way to decide which takes priority.</p>
+
+          <h4>Your Verdict (~100 words)</h4>
+          <p>Having heard both advisors, I find the deontological position more convincing in this case. While my utilitarian advisor correctly identifies the suffering caused by the handicapping system, their framework leaves open a disturbing possibility: that enforced equality <em>could</em> be justified if it made enough people happy. The deontological advisor&rsquo;s insistence that people must never be treated as mere means provides a firmer foundation for condemning the system. I rule that the handicapping system is unjust because it violates the fundamental dignity of every citizen. In my kingdom, excellence will be celebrated, not punished.</p>
+        </div>
+        <div class="ts-nav">
+          <button class="btn" onclick="advanceTasksheet(8)" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back</button>
+          <button class="btn" onclick="goToPhase('0')">Return to Title</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PHASE 0READINGS: ESSENTIAL READINGS -->
+<div id="phase0readings" class="phase">
+  <div class="readings-page">
+    <div class="readings-container">
+      <h2 class="readings-heading">Essential Readings for Your Theories</h2>
+      <p class="readings-subtitle">All readings are from James Rachels' &ldquo;The Elements of Moral Philosophy&rdquo;</p>
+
+      <!-- UTILITARIANISM -->
+      <div class="reading-card" id="readingUtil">
+        <div class="reading-card-header" onclick="toggleReadingCard('readingUtil')">
+          <span class="reading-card-title">Utilitarianism</span>
+          <span class="reading-card-arrow">&#9660;</span>
+        </div>
+        <div class="reading-card-body">
+          <div class="reading-overview">
+            <p>Rachels traces the utilitarian revolution from <strong>Jeremy Bentham</strong> to <strong>John Stuart Mill</strong>. The core idea is simple but radical: the morally right action is the one that produces the <strong>greatest happiness for the greatest number</strong> (the Principle of Utility). Rachels explores three modern applications:</p>
+            <ul style="margin:8px 0 0 18px;">
+              <li><strong>Euthanasia</strong> &mdash; through the case of Sigmund Freud choosing to end his suffering, Rachels shows how utilitarians weigh quality of life against quantity</li>
+              <li><strong>Marijuana &amp; the War on Drugs</strong> &mdash; using Mill&rsquo;s Harm Principle (the only justification for limiting someone&rsquo;s freedom is to prevent harm to others), Rachels questions whether drug criminalisation actually reduces suffering</li>
+              <li><strong>Nonhuman Animals</strong> &mdash; Rachels introduces Peter Singer&rsquo;s concept of <strong>speciesism</strong> (treating animals as less morally important simply because they&rsquo;re a different species) and the utilitarian case against factory farming</li>
+            </ul>
+            <p style="margin-top:10px;"><strong>Key concepts:</strong> Principle of Utility, Greatest Happiness Principle, Harm Principle, higher vs lower pleasures, speciesism, impartiality</p>
+          </div>
+          <div class="reading-btns">
+            <a class="reading-dl-btn" href="3 - Issues Analysis/Rachels - Utilitarianism.pdf" download>Download the Reading</a>
+            <button class="reading-quiz-btn" onclick="startReadingQuiz('util')">Quiz Me on My Theory</button>
+          </div>
+          <div class="reading-quiz" id="quizUtil"></div>
+        </div>
+      </div>
+
+      <!-- DEONTOLOGY -->
+      <div class="reading-card" id="readingDeon">
+        <div class="reading-card-header" onclick="toggleReadingCard('readingDeon')">
+          <span class="reading-card-title">Deontology</span>
+          <span class="reading-card-arrow">&#9660;</span>
+        </div>
+        <div class="reading-card-body">
+          <div class="reading-overview">
+            <p>Rachels explains <strong>Immanuel Kant&rsquo;s</strong> moral philosophy, which holds that morality is about <strong>duty and universal rules</strong>, not consequences. The key ideas:</p>
+            <ul style="margin:8px 0 0 18px;">
+              <li><strong>The Categorical Imperative</strong> &mdash; act only according to rules you could will to be universal laws. If everyone did what you&rsquo;re doing, would it still make sense?</li>
+              <li><strong>Treating people as ends</strong> &mdash; never treat a person merely as a means to your own goals; every rational being has inherent dignity</li>
+              <li><strong>Absolute rules</strong> &mdash; Rachels presents Kant&rsquo;s controversial claim that lying is <em>always</em> wrong, even to an &ldquo;inquiring murderer&rdquo; at your door asking where your friend is hiding</li>
+              <li><strong>Conflicts between rules</strong> &mdash; through the Hurricane Katrina mercy killing case, Rachels explores what happens when two moral duties collide</li>
+            </ul>
+            <p style="margin-top:10px;"><strong>Key concepts:</strong> Categorical Imperative, hypothetical vs categorical imperatives, maxim, universal law, treating as ends, absolute moral rules</p>
+          </div>
+          <div class="reading-btns">
+            <a class="reading-dl-btn" href="3 - Issues Analysis/Rachels - Deontology.pdf" download>Download the Reading</a>
+            <button class="reading-quiz-btn" onclick="startReadingQuiz('deon')">Quiz Me on My Theory</button>
+          </div>
+          <div class="reading-quiz" id="quizDeon"></div>
+        </div>
+      </div>
+
+      <!-- VIRTUE ETHICS -->
+      <div class="reading-card" id="readingVirt">
+        <div class="reading-card-header" onclick="toggleReadingCard('readingVirt')">
+          <span class="reading-card-title">Virtue Ethics</span>
+          <span class="reading-card-arrow">&#9660;</span>
+        </div>
+        <div class="reading-card-body">
+          <div class="reading-overview">
+            <p>Rachels shifts focus from &ldquo;What should I do?&rdquo; to &ldquo;<strong>What kind of person should I be?</strong>&rdquo; This is the question at the heart of <strong>Aristotle&rsquo;s</strong> Virtue Ethics:</p>
+            <ul style="margin:8px 0 0 18px;">
+              <li><strong>Virtues as character traits</strong> &mdash; a virtue is not a single good action but a <em>habitual</em> disposition. You become courageous by practising courage, generous by practising generosity</li>
+              <li><strong>The Golden Mean</strong> &mdash; every virtue lies between two extremes (vices). Courage lies between cowardice (too little) and recklessness (too much). Generosity lies between stinginess and wastefulness</li>
+              <li><strong>Eudaimonia</strong> &mdash; the ultimate goal of human life is flourishing or &ldquo;living well.&rdquo; Virtues are the character traits that enable eudaimonia</li>
+              <li><strong>Real examples</strong> &mdash; Rachels discusses courage through the 9/11 debates (Bill Maher, Peter Geach), honesty through Athanasius protecting fugitives, and generosity through Jesus&rsquo;s teachings</li>
+            </ul>
+            <p style="margin-top:10px;"><strong>Key concepts:</strong> virtue, vice, Golden Mean, eudaimonia, character, habitual action, courage, generosity, honesty</p>
+          </div>
+          <div class="reading-btns">
+            <a class="reading-dl-btn" href="3 - Issues Analysis/Rachels - Virtue Ethics.pdf" download>Download the Reading</a>
+            <button class="reading-quiz-btn" onclick="startReadingQuiz('virt')">Quiz Me on My Theory</button>
+          </div>
+          <div class="reading-quiz" id="quizVirt"></div>
+        </div>
+      </div>
+
+      <!-- ETHICAL EGOISM -->
+      <div class="reading-card" id="readingEgo">
+        <div class="reading-card-header" onclick="toggleReadingCard('readingEgo')">
+          <span class="reading-card-title">Ethical Egoism</span>
+          <span class="reading-card-arrow">&#9660;</span>
+        </div>
+        <div class="reading-card-body">
+          <div class="reading-overview">
+            <p>Rachels examines the provocative claim that <strong>acting in your own self-interest is not only natural but morally right</strong>. The key figure is <strong>Ayn Rand</strong>:</p>
+            <ul style="margin:8px 0 0 18px;">
+              <li><strong>Rational self-interest</strong> &mdash; Rand argues that each person&rsquo;s primary moral obligation is to pursue their own happiness and well-being. This is not selfishness in the petty sense, but a principled commitment to one&rsquo;s own rational goals</li>
+              <li><strong>The argument against altruism</strong> &mdash; Rand claims that altruism (putting others first) is actually <em>self-defeating</em> and degrading. If everyone sacrifices themselves for others, everyone ends up worse off</li>
+              <li><strong>Enlightened egoism</strong> &mdash; being kind to others can still be rational if it serves your long-term interests (building relationships, earning trust, creating a stable society)</li>
+              <li><strong>Critiques</strong> &mdash; Rachels examines whether egoism can handle moral dilemmas where self-interest and the common good genuinely conflict</li>
+            </ul>
+            <p style="margin-top:10px;"><strong>Key concepts:</strong> rational self-interest, ethical egoism vs psychological egoism, enlightened egoism, the altruism problem, individual rights</p>
+          </div>
+          <div class="reading-btns">
+            <a class="reading-dl-btn" href="3 - Issues Analysis/Rachels - Egoism.pdf" download>Download the Reading</a>
+            <button class="reading-quiz-btn" onclick="startReadingQuiz('ego')">Quiz Me on My Theory</button>
+          </div>
+          <div class="reading-quiz" id="quizEgo"></div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:28px;">
+        <button class="btn" onclick="goToPhase('0')" style="background:transparent;border:2px solid #7d4a8d;color:#c9b5d8;">Back to Title</button>
       </div>
     </div>
   </div>
@@ -2446,6 +3245,20 @@ const stimuli = [
     tagNote: "Feature-length documentary (90 min) \u2014 available on Netflix (rated 15+, contains strong language and misogynistic content)",
     watchLink: null,
     isNetflix: true
+  },
+  {
+    id: 11,
+    title: "2081",
+    summary: "A dystopian vision of enforced equality taken to its logical extreme",
+    description: "Set in 2081, the 211th, 212th, and 213th Amendments to the US Constitution have made everyone \u2018finally equal.\u2019 Nobody is smarter, stronger, or more beautiful than anyone else. Equality is enforced by the Handicapper General through physical devices: mental handicap radios that blast noise every 20 seconds to shatter intelligent thought, lead-weight bags padlocked around strong people\u2019s necks, and ugly masks forced onto beautiful faces. George Bergeron, an above-average man, cannot hold a thought for more than a few seconds. His wife Hazel, perfectly average, needs no handicaps. Their extraordinary 14-year-old son Harrison has been jailed as a threat to the system. When Harrison escapes and bursts into a live television broadcast, tearing off his handicaps and dancing freely with a ballerina, it is the only moment of genuine beauty in the film \u2014 before Diana Moon Glampers, the Handicapper General, arrives with a shotgun and kills them both on live TV. Back home, George and Hazel cannot even remember what they just saw. Based on Kurt Vonnegut\u2019s \u2018Harrison Bergeron.\u2019",
+    dilemmas: [
+      "Is enforced equality (making everyone the same) morally different from genuine equality (giving everyone equal rights and dignity)?",
+      "Does the government have the right to limit individual excellence for the sake of social harmony?",
+      "If a system prevents people from even recognising injustice, can anyone be held morally responsible?"
+    ],
+    tags: ["Equality", "Freedom", "Government", "Individual Rights"],
+    tagNote: "Short film (25 min) \u2014 based on Kurt Vonnegut\u2019s story",
+    watchLink: "https://youtu.be/dEgOuZzjI8o?si=aUdLX8T02iKVgmNZ"
   }
 ];
 
@@ -3036,6 +3849,64 @@ const comprehensionQuestions = {
         {text:"A world of pure self-interest is a world without genuine friendship, love, or trust \u2014 Aristotle would say it makes human flourishing impossible.", theory:"virt"},
         {text:"If everyone is an egoist, then nobody is \u2018wrong\u2019 \u2014 but Rachels showed this argument is self-defeating, because it secretly relies on benefiting everyone.", theory:"ego"}
       ]}
+  ],
+  11: [
+    { id:"s11q1", frame:"util", scenario:"In 2081, the government uses handicap devices to ensure no one is smarter, stronger, or more beautiful than anyone else. The result is a society where ballet is mediocre, thought is impossible, and art has no beauty. A utilitarian would ask: does this system produce more happiness or more suffering overall?",
+      options:[
+        {text:"The system causes enormous suffering \u2014 the total loss of beauty, thought, and excellence far outweighs any comfort gained from 'equality.' It fails the Greatest Happiness test.", theory:"util"},
+        {text:"Regardless of outcomes, the system violates people\u2019s fundamental dignity \u2014 using handicaps to control them treats people as objects to be managed, not as ends in themselves.", theory:"deon"},
+        {text:"The system destroys every virtue \u2014 courage, creativity, wisdom \u2014 and replaces them with enforced mediocrity. It makes human flourishing impossible.", theory:"virt"},
+        {text:"The system is an assault on individual rights. Each person\u2019s abilities belong to them, and no government should have the power to take them away.", theory:"ego"}
+      ]},
+    { id:"s11q2", frame:"util", scenario:"George Bergeron\u2019s mental handicap radio blasts jarring noise every 20 seconds to shatter his thoughts before they can develop. He almost thinks about his imprisoned son, almost recognises something is wrong \u2014 but the device stops him every time. Mill argued that power over individuals can only be justified to prevent harm to others. Does George\u2019s thinking harm anyone?",
+      options:[
+        {text:"George\u2019s thinking harms no one \u2014 Mill\u2019s Harm Principle clearly condemns this. The government is causing suffering without preventing any.", theory:"util"},
+        {text:"The government is treating George as a means to their vision of society, not as a person with inherent worth. Kant would say this is fundamentally wrong.", theory:"deon"},
+        {text:"The device doesn\u2019t just limit what George can do \u2014 it destroys who George IS. It attacks his capacity for wisdom, the most important virtue.", theory:"virt"},
+        {text:"George\u2019s mind is his own property. A rational person would resist any system that takes away their greatest asset \u2014 their ability to think.", theory:"ego"}
+      ]},
+    { id:"s11q3", frame:"deon", scenario:"Harrison Bergeron bursts into the TV studio and declares himself Emperor, tearing off his handicaps and inviting a ballerina to dance freely with him. He breaks every law in his society. Kant says we should only act on rules that could become universal laws. Could Harrison\u2019s rebellion pass this test?",
+      options:[
+        {text:"His rebellion is justified because it leads to a beautiful outcome \u2014 the dance is the only moment of genuine happiness in the entire film.", theory:"util"},
+        {text:"If everyone resisted unjust laws, unjust systems would collapse \u2014 that\u2019s a universal law that makes sense. Harrison\u2019s rebellion could be universalised.", theory:"deon"},
+        {text:"Harrison displays extraordinary courage \u2014 the willingness to risk everything for freedom and beauty. He is showing genuine virtue.", theory:"virt"},
+        {text:"Harrison is acting in his own rational self-interest by refusing to live as less than he is. Any intelligent person would do the same.", theory:"ego"}
+      ]},
+    { id:"s11q4", frame:"deon", scenario:"The Handicapper General, Diana Moon Glampers, kills Harrison and the ballerina on live television without hesitation \u2014 she is simply enforcing the law. The Amendments were ratified democratically. Does the fact that the law was democratically enacted make her actions morally acceptable?",
+      options:[
+        {text:"No \u2014 a law that produces this much suffering cannot be morally right, regardless of how it was passed.", theory:"util"},
+        {text:"No \u2014 a democratically enacted law can still be unjust. If a law violates human dignity, following it is not a moral duty. Kant would condemn the law itself.", theory:"deon"},
+        {text:"Glampers shows no compassion, no mercy, no justice \u2014 she is the opposite of a virtuous person. Following the law does not make her good.", theory:"virt"},
+        {text:"She is a tool of the state, sacrificing exceptional individuals for the comfort of the mediocre. That\u2019s the ultimate violation of individual rights.", theory:"ego"}
+      ]},
+    { id:"s11q5", frame:"virt", scenario:"The film\u2019s most powerful scene is Harrison and the ballerina dancing freely \u2014 the only moment of genuine beauty, excellence, and human expression. Aristotle said the goal of life is eudaimonia (flourishing). What does this scene reveal about what flourishing requires?",
+      options:[
+        {text:"It shows that happiness requires freedom \u2014 people can only be truly happy when they\u2019re free to use their abilities fully.", theory:"util"},
+        {text:"It shows that every person has inherent worth and capabilities that must never be suppressed, no matter what society demands.", theory:"deon"},
+        {text:"It shows that flourishing requires the freedom to develop and express excellence \u2014 virtue cannot exist in a world that forces mediocrity.", theory:"virt"},
+        {text:"It proves that extraordinary individuals have the right to be extraordinary \u2014 their greatness belongs to them, not to society.", theory:"ego"}
+      ]},
+    { id:"s11q6", frame:"virt", scenario:"Hazel Bergeron, Harrison\u2019s mother, is perfectly average and wears no handicaps. She cries at things on television but cannot remember why moments later. She watches her own son get murdered on screen and forgets almost immediately. Is Hazel morally responsible for her passive acceptance of the system?",
+      options:[
+        {text:"She isn\u2019t responsible because she lacks the capacity to understand the harm \u2014 you can only be blamed if you could have known better.", theory:"util"},
+        {text:"She has a duty to question injustice, but the system has made it impossible for her to fulfil that duty. The moral failure belongs to the system, not to Hazel.", theory:"deon"},
+        {text:"Hazel cannot be virtuous or vicious because she cannot reflect on her own character. The system has stolen her capacity for moral agency entirely.", theory:"virt"},
+        {text:"Hazel is a cautionary tale \u2014 average people who accept mediocrity enable the system that destroys the exceptional. Her passivity is part of the problem.", theory:"ego"}
+      ]},
+    { id:"s11q7", frame:"ego", scenario:"Ayn Rand argued that individual excellence is society\u2019s greatest resource, and that forcing the talented to sacrifice for the mediocre is the greatest injustice. The world of 2081 is essentially Rand\u2019s nightmare. Does the film support Rand\u2019s argument that altruism (putting others first) devalues the individual?",
+      options:[
+        {text:"The film shows that suppressing individuals hurts EVERYONE \u2014 society as a whole loses beauty, art, and progress. It\u2019s a utilitarian disaster.", theory:"util"},
+        {text:"The film shows that equality of dignity is essential, but equality of ability is tyranny. Kant would distinguish between respecting people and making them identical.", theory:"deon"},
+        {text:"The film shows what happens when society prizes sameness over virtue \u2014 without the freedom to be excellent, no one can be truly good.", theory:"virt"},
+        {text:"Rand would see Harrison as a hero \u2014 someone who refuses to apologise for being extraordinary. His 'crime' is being better than average, which is no crime at all.", theory:"ego"}
+      ]},
+    { id:"s11q8", frame:"ego", scenario:"At the end of the film, George returns from the kitchen and asks Hazel why she\u2019s been crying. She says she can\u2019t remember. George\u2019s earpiece fires, and he loses his thought too. They sit together \u2014 equal, empty. Hazel says \u2018forget sad things\u2019 and George replies \u2018I always do.\u2019 If the people in this society cannot even recognise their own oppression, what hope is there for change?",
+      options:[
+        {text:"This is why consequences matter most \u2014 a system that prevents people from even feeling their suffering is the most harmful system imaginable.", theory:"util"},
+        {text:"This proves that freedom of thought is the most fundamental right \u2014 without it, no other moral reasoning is even possible.", theory:"deon"},
+        {text:"Without the capacity to reflect, grow, and choose, there can be no virtue and no vice \u2014 just existence. The system has destroyed what makes us human.", theory:"virt"},
+        {text:"This is exactly why self-reliance matters \u2014 individuals who surrender their minds to the state end up with nothing. Only those who resist, like Harrison, retain their humanity.", theory:"ego"}
+      ]}
   ]
 };
 
@@ -3164,6 +4035,279 @@ let reflectionPicks = [];
 let deepDiveAnswers = {};
 let courtMusicPlaying = false;
 
+// Additional state for persistence
+let selectedDilemmaIndex = -1;
+let selectedJudgementIndex = -1;
+let issueJudgementTextValue = '';
+let issueStepIndex = 0;
+let courtEntered = false;
+let reflectionSubmitted = false;
+let deepDiveComplete = false;
+let kuQuizAnswered = false;
+
+// ============ LOCAL STORAGE ============
+var SAVE_KEY = 'rulersCourtState';
+
+function saveState() {
+  try {
+    var state = {
+      currentPhase: currentPhase,
+      jesterChoice: jesterChoice,
+      selectedStimulusId: selectedStimulus ? selectedStimulus.id : null,
+      selectedTheory1: selectedTheory1,
+      selectedTheory2: selectedTheory2,
+      theoryScores: theoryScores,
+      questionAnswers: questionAnswers,
+      reflectionPicks: reflectionPicks,
+      deepDiveAnswers: deepDiveAnswers,
+      selectedDilemmaIndex: selectedDilemmaIndex,
+      selectedJudgementIndex: selectedJudgementIndex,
+      issueJudgementTextValue: issueJudgementTextValue,
+      issueStepIndex: issueStepIndex,
+      currentQuestionIndex: currentQuestionIndex,
+      currentDeepDiveIndex: currentDeepDiveIndex,
+      courtEntered: courtEntered,
+      reflectionSubmitted: reflectionSubmitted,
+      deepDiveComplete: deepDiveComplete,
+      kuQuizAnswered: kuQuizAnswered
+    };
+    localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+  } catch(e) { /* localStorage unavailable */ }
+}
+
+function loadState() {
+  try {
+    var raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch(e) { return null; }
+}
+
+function clearSavedState() {
+  try { localStorage.removeItem(SAVE_KEY); } catch(e) {}
+  location.reload();
+}
+
+function restoreState() {
+  var state = loadState();
+  if (!state || !state.selectedStimulusId) return false;
+
+  // Restore primitive state
+  jesterChoice = state.jesterChoice;
+  selectedTheory1 = state.selectedTheory1;
+  selectedTheory2 = state.selectedTheory2;
+  theoryScores = state.theoryScores || { util: 0, deon: 0, virt: 0, ego: 0 };
+  questionAnswers = state.questionAnswers || {};
+  reflectionPicks = state.reflectionPicks || [];
+  deepDiveAnswers = state.deepDiveAnswers || {};
+  selectedDilemmaIndex = state.selectedDilemmaIndex != null ? state.selectedDilemmaIndex : -1;
+  selectedJudgementIndex = state.selectedJudgementIndex != null ? state.selectedJudgementIndex : -1;
+  issueJudgementTextValue = state.issueJudgementTextValue || '';
+  issueStepIndex = state.issueStepIndex || 0;
+  currentQuestionIndex = state.currentQuestionIndex || 0;
+  currentDeepDiveIndex = state.currentDeepDiveIndex || 0;
+  courtEntered = state.courtEntered || false;
+  reflectionSubmitted = state.reflectionSubmitted || false;
+  deepDiveComplete = state.deepDiveComplete || false;
+  kuQuizAnswered = state.kuQuizAnswered || false;
+
+  // Re-hydrate selectedStimulus
+  selectedStimulus = stimuli.find(function(s) { return s.id === state.selectedStimulusId; });
+  if (!selectedStimulus) return false;
+
+  // Navigate to saved phase
+  var targetPhase = state.currentPhase || '0';
+  if (targetPhase === '0' || targetPhase === '0sage') return false;
+
+  goToPhase(targetPhase);
+
+  // Post-navigation restoration for specific phases
+  setTimeout(function() { restorePhaseState(targetPhase); }, 100);
+
+  return true;
+}
+
+function restorePhaseState(phaseId) {
+  // Restore phase 3b (issue identification) DOM state
+  if (phaseId === '3b') {
+    restoreIssueActivity();
+  }
+
+  // Restore phase 4 (interrogation) - show correct question
+  if (phaseId === '4') {
+    restoreInterrogation();
+  }
+
+  // Restore phase 5 (courtroom) - bypass music gate if entered
+  if (phaseId === '5' && courtEntered) {
+    document.getElementById('musicGate').style.display = 'none';
+    document.getElementById('courtContent').style.display = 'block';
+    buildAdvisorCards();
+  }
+
+  // Restore phase 6 (deep dive) - show correct passage
+  if (phaseId === '6') {
+    restoreDeepDive();
+  }
+
+  // For phase 7, buildEssayPlan is called by goToPhase already
+  // But we need issue activity DOM built first for it to read from
+  if (phaseId === '7') {
+    restoreIssueActivitySilently();
+  }
+}
+
+function restoreIssueActivity() {
+  // Advance to the correct step
+  for (var i = 0; i < issueStepIndex; i++) {
+    var stepEl = document.getElementById('issueStep' + i);
+    if (stepEl) stepEl.style.display = 'none';
+  }
+  var currentStep = document.getElementById('issueStep' + issueStepIndex);
+  if (currentStep) currentStep.style.display = 'block';
+
+  // Restore dilemma selection
+  if (selectedDilemmaIndex >= 0) {
+    var dOpt = document.getElementById('dilemma_opt_' + selectedDilemmaIndex);
+    var dRadio = document.getElementById('dilemma_radio_' + selectedDilemmaIndex);
+    if (dOpt) dOpt.classList.add('selected');
+    if (dRadio) dRadio.checked = true;
+  }
+
+  // Restore judgement selection
+  if (selectedJudgementIndex >= 0) {
+    var jOpt = document.getElementById('judge_opt_' + selectedJudgementIndex);
+    var jRadio = document.getElementById('judge_radio_' + selectedJudgementIndex);
+    if (jOpt) jOpt.classList.add('selected');
+    if (jRadio) jRadio.checked = true;
+  }
+
+  // Restore judgement text
+  var jtEl = document.getElementById('issueJudgementText');
+  if (jtEl && issueJudgementTextValue) {
+    jtEl.value = issueJudgementTextValue;
+    var btn = document.getElementById('issueJudgeBtn');
+    if (btn) btn.disabled = issueJudgementTextValue.trim().length < 10;
+    var hint = document.getElementById('issueJudgeHint');
+    if (hint && issueJudgementTextValue.trim().length >= 10) hint.style.display = 'none';
+  }
+
+  // Restore KU quiz state
+  if (kuQuizAnswered) {
+    var feedback = document.getElementById('issueKuFeedback');
+    if (feedback) {
+      feedback.classList.add('show');
+      var correct = document.getElementById('ku_check_1');
+      var incorrect = document.getElementById('ku_check_0');
+      if (correct) correct.classList.add('correct');
+      if (incorrect) incorrect.classList.add('incorrect');
+    }
+  }
+}
+
+function restoreIssueActivitySilently() {
+  // Build issue activity DOM (hidden) so essay plan can read radio values
+  if (!selectedStimulus) return;
+  var container = document.getElementById('issueActivityContainer');
+  if (container && container.children.length === 0) {
+    buildIssueActivity();
+  }
+  // Restore selections in the hidden DOM
+  if (selectedDilemmaIndex >= 0) {
+    var dRadio = document.getElementById('dilemma_radio_' + selectedDilemmaIndex);
+    if (dRadio) dRadio.checked = true;
+  }
+  if (selectedJudgementIndex >= 0) {
+    var jRadio = document.getElementById('judge_radio_' + selectedJudgementIndex);
+    if (jRadio) jRadio.checked = true;
+  }
+  var jtEl = document.getElementById('issueJudgementText');
+  if (jtEl && issueJudgementTextValue) jtEl.value = issueJudgementTextValue;
+
+  // Force essay plan rebuild since DOM is now ready
+  var planContainer = document.getElementById('essayPlanContainer');
+  if (planContainer) planContainer.innerHTML = '';
+  buildEssayPlan();
+}
+
+function restoreInterrogation() {
+  var questions = comprehensionQuestions[selectedStimulus.id];
+  if (!questions) return;
+
+  // Hide all cards, show the current one
+  questions.forEach(function(q, i) {
+    var card = document.getElementById('qcard_' + q.id);
+    if (card) card.style.display = 'none';
+  });
+
+  // If all questions answered, show reflection
+  var allAnswered = questions.every(function(q) { return questionAnswers[q.id]; });
+
+  if (allAnswered && reflectionSubmitted) {
+    // Show theory result
+    showReflectionStep();
+    submitReflection();
+  } else if (allAnswered) {
+    showReflectionStep();
+    // Restore reflection picks
+    reflectionPicks.forEach(function(idx) {
+      var el = document.getElementById('refl_' + idx);
+      var cb = document.getElementById('reflcheck_' + idx);
+      if (el) el.classList.add('selected');
+      if (cb) cb.checked = true;
+    });
+    var submitBtn = document.getElementById('reflectionSubmitBtn');
+    if (submitBtn) submitBtn.disabled = reflectionPicks.length !== 2;
+  } else {
+    // Show the current question
+    var card = document.getElementById('qcard_' + questions[currentQuestionIndex].id);
+    if (card) card.style.display = 'block';
+
+    // Re-select previously answered questions' options (they stay answered when navigated back)
+    questions.forEach(function(q) {
+      if (questionAnswers[q.id]) {
+        var qCard = document.getElementById('qcard_' + q.id);
+        if (qCard) {
+          qCard.classList.add('answered');
+          // Find and select the matching option by theory
+          var opts = qCard.querySelectorAll('.response-option');
+          opts.forEach(function(opt) {
+            var onclick = opt.getAttribute('onclick') || '';
+            if (onclick.indexOf("'" + questionAnswers[q.id] + "'") > -1) {
+              opt.classList.add('selected');
+              var radio = opt.querySelector('input[type="radio"]');
+              if (radio) radio.checked = true;
+            }
+          });
+        }
+      }
+    });
+  }
+}
+
+function restoreDeepDive() {
+  if (deepDiveComplete) {
+    // Hide all cards, show completion message
+    deepDiveSequence.forEach(function(item, i) {
+      var card = document.getElementById('ddcard_' + i);
+      if (card) card.style.display = 'none';
+    });
+    var doneMsg = document.createElement('div');
+    doneMsg.style.cssText = 'text-align:center; padding:40px 20px;';
+    doneMsg.innerHTML =
+      '<h3 style="color:#7d4a8d; margin-bottom:15px;">\ud83d\udcdc Deep Dive Complete!</h3>' +
+      '<p style="color:#666; margin-bottom:20px;">You\u2019ve read all the key passages and applied both theories to <strong>\u201c' + selectedStimulus.title + '.\u201d</strong> Your responses have been saved and will appear in your essay plan.</p>';
+    document.getElementById('deepDiveContainer').appendChild(doneMsg);
+    document.getElementById('deepDiveContinueBtn').style.display = 'block';
+  } else {
+    // Show correct card
+    deepDiveSequence.forEach(function(item, i) {
+      var card = document.getElementById('ddcard_' + i);
+      if (card) card.style.display = i === currentDeepDiveIndex ? 'block' : 'none';
+    });
+  }
+}
+
 const phaseToStep = {
   '0': -1, '0sage': -1,
   '1': 0, '2a': 0, '2b': 0,
@@ -3176,7 +4320,7 @@ const phaseToStep = {
   '8': 6
 };
 
-const allPhaseIds = ['0', '0sage', '1', '2a', '2b', '3', '3b', '4', '5', '6', '7', '8'];
+const allPhaseIds = ['0', '0sage', '0tasksheet', '0readings', '1', '2a', '2b', '3', '3b', '4', '5', '6', '7', '8'];
 
 // ============ PHASE MANAGEMENT ============
 function scrollToTop() {
@@ -3197,8 +4341,15 @@ function goToPhase(phaseId) {
   // Hide progress bar on title/sage pages
   var progressBar = document.querySelector('.progress-bar');
   if (progressBar) {
-    progressBar.style.display = (phaseId === '0' || phaseId === '0sage') ? 'none' : 'block';
+    progressBar.style.display = (phaseId === '0' || phaseId === '0sage' || phaseId === '0tasksheet' || phaseId === '0readings') ? 'none' : 'block';
   }
+
+  // Show/hide PDF save button and start fresh button
+  var pdfBtn = document.getElementById('savePdfBtn');
+  var freshBtn = document.getElementById('startFreshBtn');
+  var showBtns = (phaseId !== '0' && phaseId !== '0sage' && phaseId !== '0tasksheet' && phaseId !== '0readings');
+  if (pdfBtn) pdfBtn.style.display = showBtns ? 'flex' : 'none';
+  if (freshBtn) freshBtn.style.display = showBtns ? 'block' : 'none';
 
   // Hide all phases and reset any revealed content
   allPhaseIds.forEach(id => {
@@ -3248,6 +4399,227 @@ function goToPhase(phaseId) {
 
   // Trigger jester mascots on specific phases
   triggerJesterMascot(phaseId);
+
+  // Save progress
+  saveState();
+}
+
+// ============ TASKSHEET EXPLAINED ============
+function advanceTasksheet(step) {
+  for (var i = 1; i <= 9; i++) {
+    var el = document.getElementById('ts' + i);
+    if (el) el.classList.remove('ts-active');
+  }
+  var target = document.getElementById('ts' + step);
+  if (target) target.classList.add('ts-active');
+  var prog = document.getElementById('tsProgress');
+  if (prog) prog.textContent = 'Step ' + step + ' of 9';
+  scrollToTop();
+}
+
+// ============ ESSENTIAL READINGS ============
+function toggleReadingCard(id) {
+  var card = document.getElementById(id);
+  if (card) card.classList.toggle('expanded');
+}
+
+var readingQuizData = {
+  util: [
+    { q: 'According to Mill, what determines whether an action is morally right?', opts: [
+      { text: 'Whether it produces the greatest happiness for the greatest number', correct: true },
+      { text: 'Whether it follows a universal moral rule', correct: false },
+      { text: 'Whether it develops virtuous character traits', correct: false },
+      { text: 'Whether it serves the interests of the person acting', correct: false }
+    ]},
+    { q: 'What is the Harm Principle, as Rachels explains it?', opts: [
+      { text: 'The only justification for limiting someone\'s freedom is to prevent harm to others', correct: true },
+      { text: 'Any action that causes harm is automatically immoral', correct: false },
+      { text: 'Governments should minimise all forms of suffering equally', correct: false },
+      { text: 'People should avoid harming themselves as a moral duty', correct: false }
+    ]},
+    { q: 'What does Peter Singer mean by "speciesism"?', opts: [
+      { text: 'Treating animals as less morally important simply because they are a different species', correct: true },
+      { text: 'The scientific study of different animal species and their moral status', correct: false },
+      { text: 'The belief that humans evolved to be morally superior to animals', correct: false },
+      { text: 'Giving equal rights to all animal species including insects', correct: false }
+    ]},
+    { q: 'Mill distinguishes between "higher" and "lower" pleasures. Which is an example of a higher pleasure?', opts: [
+      { text: 'Intellectual engagement and creative expression', correct: true },
+      { text: 'Eating a satisfying meal', correct: false },
+      { text: 'Physical comfort and warmth', correct: false },
+      { text: 'A good night\'s sleep', correct: false }
+    ]},
+    { q: 'Why does Rachels use the case of Sigmund Freud in the chapter on Utilitarianism?', opts: [
+      { text: 'To illustrate how utilitarians weigh quality of life against quantity when considering euthanasia', correct: true },
+      { text: 'To show that famous intellectuals always support utilitarian ethics', correct: false },
+      { text: 'To argue that psychoanalysis is a utilitarian practice', correct: false },
+      { text: 'To demonstrate that suffering builds character and should not be avoided', correct: false }
+    ]}
+  ],
+  deon: [
+    { q: 'What is the Categorical Imperative?', opts: [
+      { text: 'Act only according to rules you could will to be universal laws', correct: true },
+      { text: 'Always act in a way that maximises happiness for everyone', correct: false },
+      { text: 'Follow the moral rules of your culture without exception', correct: false },
+      { text: 'Act only when you are categorically certain of the outcome', correct: false }
+    ]},
+    { q: 'What does Kant mean by treating people as "ends in themselves"?', opts: [
+      { text: 'Respecting every person\'s inherent dignity and never using them merely as tools for your own goals', correct: true },
+      { text: 'Making sure every interaction has a clear purpose or conclusion', correct: false },
+      { text: 'Ensuring that moral rules lead to good consequences in the end', correct: false },
+      { text: 'Treating people well only at the end of their lives', correct: false }
+    ]},
+    { q: 'In the "Inquiring Murderer" scenario, what does Kant argue?', opts: [
+      { text: 'That lying is always wrong, even to a murderer asking where your friend is hiding', correct: true },
+      { text: 'That you should lie to protect your friend because consequences matter most', correct: false },
+      { text: 'That you have no duty to respond to the murderer at all', correct: false },
+      { text: 'That you should weigh the potential outcomes before deciding', correct: false }
+    ]},
+    { q: 'What is the difference between a hypothetical and a categorical imperative?', opts: [
+      { text: 'Hypothetical imperatives depend on your goals; categorical imperatives apply regardless of what you want', correct: true },
+      { text: 'Hypothetical imperatives are imaginary; categorical imperatives are real', correct: false },
+      { text: 'Hypothetical imperatives are for individuals; categorical imperatives are for governments', correct: false },
+      { text: 'Hypothetical imperatives are weaker moral claims; categorical imperatives are stronger', correct: false }
+    ]},
+    { q: 'What problem does Rachels identify with Kant\'s system through the Hurricane Katrina case?', opts: [
+      { text: 'When two absolute moral duties conflict, Kant\'s system offers no clear way to decide which takes priority', correct: true },
+      { text: 'Kant\'s system only works in peaceful times, not during natural disasters', correct: false },
+      { text: 'The Categorical Imperative proves that mercy killing is always justified in emergencies', correct: false },
+      { text: 'Deontology requires following government orders even when they are immoral', correct: false }
+    ]}
+  ],
+  virt: [
+    { q: 'What is the central question of Virtue Ethics, according to Rachels?', opts: [
+      { text: '"What kind of person should I be?" rather than "What should I do?"', correct: true },
+      { text: '"What rules should I follow?" rather than "What outcome do I want?"', correct: false },
+      { text: '"What would make me happiest?" rather than "What is my duty?"', correct: false },
+      { text: '"What does society expect of me?" rather than "What do I want?"', correct: false }
+    ]},
+    { q: 'What is the Golden Mean?', opts: [
+      { text: 'The idea that every virtue lies between two extremes (vices) — one of excess and one of deficiency', correct: true },
+      { text: 'The belief that the most valuable things in life are neither too expensive nor too cheap', correct: false },
+      { text: 'Aristotle\'s claim that the average person is the most virtuous', correct: false },
+      { text: 'A mathematical formula for calculating the right amount of happiness', correct: false }
+    ]},
+    { q: 'How does a person become virtuous, according to Aristotle?', opts: [
+      { text: 'Through habitual practice — you become courageous by repeatedly doing courageous things', correct: true },
+      { text: 'By studying philosophy and learning the correct moral rules', correct: false },
+      { text: 'By being born with naturally good character traits', correct: false },
+      { text: 'By following the example of religious leaders and saints', correct: false }
+    ]},
+    { q: 'What is eudaimonia?', opts: [
+      { text: 'Flourishing or "living well" — the ultimate goal of human life achieved through virtuous character', correct: true },
+      { text: 'A Greek word meaning "happiness through pleasure and comfort"', correct: false },
+      { text: 'The state of having no moral conflicts or dilemmas', correct: false },
+      { text: 'The feeling of satisfaction after performing a dutiful action', correct: false }
+    ]},
+    { q: 'Where does courage fall on the Golden Mean, according to Rachels?', opts: [
+      { text: 'Between cowardice (too little) and recklessness (too much)', correct: true },
+      { text: 'Between fear (too little) and confidence (too much)', correct: false },
+      { text: 'Between passivity (too little) and aggression (too much)', correct: false },
+      { text: 'Between caution (too little) and bravery (too much)', correct: false }
+    ]}
+  ],
+  ego: [
+    { q: 'What does Ayn Rand argue is each person\'s primary moral obligation?', opts: [
+      { text: 'To pursue their own happiness and rational self-interest', correct: true },
+      { text: 'To contribute to the greatest good for the greatest number', correct: false },
+      { text: 'To develop virtuous character traits through habitual practice', correct: false },
+      { text: 'To follow universal moral rules regardless of consequences', correct: false }
+    ]},
+    { q: 'What is the difference between ethical egoism and psychological egoism?', opts: [
+      { text: 'Ethical egoism says we SHOULD act in self-interest; psychological egoism says we ALWAYS DO act in self-interest', correct: true },
+      { text: 'Ethical egoism is about morality; psychological egoism is about mental health', correct: false },
+      { text: 'Ethical egoism is Rand\'s theory; psychological egoism is Aristotle\'s theory', correct: false },
+      { text: 'Ethical egoism is selfish; psychological egoism is rational', correct: false }
+    ]},
+    { q: 'Why does Rand argue that altruism is self-defeating?', opts: [
+      { text: 'If everyone sacrifices themselves for others, everyone ends up worse off because no one pursues their own well-being', correct: true },
+      { text: 'Because scientific research proves that humans are incapable of genuine selflessness', correct: false },
+      { text: 'Because altruistic people secretly want recognition and praise for their sacrifice', correct: false },
+      { text: 'Because helping others always takes more resources than it produces', correct: false }
+    ]},
+    { q: 'What is "enlightened egoism"?', opts: [
+      { text: 'Being kind to others when it serves your long-term self-interest (building trust, relationships, stable society)', correct: true },
+      { text: 'The belief that only educated people can truly understand morality', correct: false },
+      { text: 'A version of egoism that incorporates meditation and spiritual practices', correct: false },
+      { text: 'Rand\'s term for people who have moved beyond self-interest to genuine altruism', correct: false }
+    ]},
+    { q: 'What key critique does Rachels raise against ethical egoism?', opts: [
+      { text: 'It struggles to handle situations where self-interest and the common good genuinely conflict', correct: true },
+      { text: 'It has been scientifically disproven by psychological research on empathy', correct: false },
+      { text: 'It only works in capitalist societies and fails in other economic systems', correct: false },
+      { text: 'It contradicts the Golden Mean by encouraging excessive self-focus', correct: false }
+    ]}
+  ]
+};
+
+var readingQuizState = {};
+
+function startReadingQuiz(theory) {
+  var quizEl = document.getElementById('quiz' + theory.charAt(0).toUpperCase() + theory.slice(1));
+  if (!quizEl) return;
+  readingQuizState[theory] = { current: 0, score: 0 };
+  quizEl.classList.add('quiz-active');
+  renderReadingQuestion(theory);
+}
+
+function renderReadingQuestion(theory) {
+  var state = readingQuizState[theory];
+  var data = readingQuizData[theory];
+  var quizEl = document.getElementById('quiz' + theory.charAt(0).toUpperCase() + theory.slice(1));
+  if (!quizEl) return;
+
+  if (state.current >= data.length) {
+    quizEl.innerHTML = '<div class="rq-result"><h4>Quiz Complete!</h4><p>You scored ' + state.score + ' out of ' + data.length + '.</p>' +
+      (state.score >= 4 ? '<p style="color:#a0e0a0;margin-top:8px;">Excellent! You have a strong grasp of this theory.</p>' :
+       state.score >= 3 ? '<p style="color:#d4a574;margin-top:8px;">Good work! Consider re-reading the sections you missed.</p>' :
+       '<p style="color:#f0a0a0;margin-top:8px;">You might want to re-read the Rachels chapter before using this theory in your essay.</p>') +
+      '<button class="btn" style="margin-top:12px;" onclick="startReadingQuiz(\'' + theory + '\')">Try Again</button></div>';
+    return;
+  }
+
+  var q = data[state.current];
+  // Shuffle options
+  var shuffled = q.opts.map(function(o, i) { return { text: o.text, correct: o.correct, idx: i }; });
+  for (var i = shuffled.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = shuffled[i]; shuffled[i] = shuffled[j]; shuffled[j] = temp;
+  }
+
+  var html = '<div class="rq-progress">Question ' + (state.current + 1) + ' of ' + data.length + '</div>';
+  html += '<div class="rq-question">' + q.q + '</div>';
+  shuffled.forEach(function(opt, idx) {
+    html += '<button class="rq-option" data-correct="' + opt.correct + '" onclick="answerReadingQuiz(\'' + theory + '\',' + idx + ',' + opt.correct + ',this)">' + opt.text + '</button>';
+  });
+  quizEl.innerHTML = html;
+}
+
+function answerReadingQuiz(theory, idx, correct, btn) {
+  var state = readingQuizState[theory];
+  var quizEl = document.getElementById('quiz' + theory.charAt(0).toUpperCase() + theory.slice(1));
+  var options = quizEl.querySelectorAll('.rq-option');
+
+  options.forEach(function(opt) {
+    opt.onclick = null;
+    opt.style.cursor = 'default';
+  });
+
+  if (correct) {
+    btn.classList.add('rq-correct');
+    state.score++;
+  } else {
+    btn.classList.add('rq-wrong');
+    options.forEach(function(opt) {
+      if (opt !== btn) {
+        if (opt.getAttribute('data-correct') === 'true') opt.classList.add('rq-correct');
+        else opt.classList.add('rq-dimmed');
+      }
+    });
+  }
+
+  state.current++;
+  setTimeout(function() { renderReadingQuestion(theory); }, 1200);
 }
 
 // ============ JESTER MASCOT SYSTEM ============
@@ -3447,6 +4819,8 @@ function buildIssueActivity() {
       document.getElementById('issueJudgeBtn').disabled = !enough;
       var hint = document.getElementById('issueJudgeHint');
       if (hint) hint.style.display = enough ? 'none' : 'block';
+      issueJudgementTextValue = this.value;
+      saveState();
     });
   }
 }
@@ -3456,6 +4830,8 @@ function selectDilemma(index) {
   opts.forEach(function(o) { o.classList.remove('selected'); });
   document.getElementById('dilemma_opt_' + index).classList.add('selected');
   document.getElementById('dilemma_radio_' + index).checked = true;
+  selectedDilemmaIndex = index;
+  saveState();
   setTimeout(function() { advanceIssueStep(1); }, 500);
 }
 
@@ -3464,6 +4840,8 @@ function selectJudgement(index) {
   opts.forEach(function(o) { o.classList.remove('selected'); });
   document.getElementById('judge_opt_' + index).classList.add('selected');
   document.getElementById('judge_radio_' + index).checked = true;
+  selectedJudgementIndex = index;
+  saveState();
   setTimeout(function() { advanceIssueStep(2); }, 500);
 }
 
@@ -3474,6 +4852,8 @@ function selectIssueQuiz(step, optIndex, isCorrect) {
   document.getElementById('ku_check_' + optIndex).classList.add(isCorrect ? 'correct' : 'incorrect');
   document.getElementById('ku_check_' + (1 - optIndex)).classList.add(isCorrect ? 'incorrect' : 'correct');
   feedback.classList.add('show');
+  kuQuizAnswered = true;
+  saveState();
 
   setTimeout(function() { advanceIssueStep(4); }, 2500);
 }
@@ -3481,6 +4861,8 @@ function selectIssueQuiz(step, optIndex, isCorrect) {
 function advanceIssueStep(nextStep) {
   document.getElementById('issueStep' + (nextStep - 1)).style.display = 'none';
   document.getElementById('issueStep' + nextStep).style.display = 'block';
+  issueStepIndex = nextStep;
+  saveState();
   scrollToTop();
 }
 
@@ -3529,11 +4911,22 @@ function selectCase(stimulusId) {
   questionAnswers = {};
   reflectionPicks = [];
   deepDiveAnswers = {};
+  selectedDilemmaIndex = -1;
+  selectedJudgementIndex = -1;
+  issueJudgementTextValue = '';
+  issueStepIndex = 0;
+  courtEntered = false;
+  reflectionSubmitted = false;
+  deepDiveComplete = false;
+  kuQuizAnswered = false;
   document.getElementById('interrogationQuestions').innerHTML = '';
   document.getElementById('reflectionStep').innerHTML = '';
   document.getElementById('reflectionStep').style.display = 'none';
   document.getElementById('theoryResult').innerHTML = '';
   document.getElementById('theoryResult').style.display = 'none';
+  // Clear essay plan so it rebuilds with new stimulus
+  var planContainer = document.getElementById('essayPlanContainer');
+  if (planContainer) planContainer.innerHTML = '';
   goToPhase('3b');
 }
 
@@ -3609,6 +5002,7 @@ function selectOption(questionId, theory, optionIndex, questionIndex) {
 
   questionAnswers[questionId] = theory;
   theoryScores[theory]++;
+  saveState();
 
   // After a short pause, advance to the next question
   var questions = comprehensionQuestions[selectedStimulus.id];
@@ -3680,6 +5074,7 @@ function toggleReflection(index) {
   }
 
   document.getElementById('reflectionSubmitBtn').disabled = reflectionPicks.length !== 2;
+  saveState();
 }
 
 function submitReflection() {
@@ -3696,6 +5091,8 @@ function submitReflection() {
 
   selectedTheory1 = rec1;
   selectedTheory2 = rec2;
+  reflectionSubmitted = true;
+  saveState();
 
   var t1Name = theoryPersonas.find(function(t) { return t.id === rec1; }).name;
   var t2Name = theoryPersonas.find(function(t) { return t.id === rec2; }).name;
@@ -3733,6 +5130,7 @@ function proceedToCourt() {
     alert('Please select two DIFFERENT theories.');
     return;
   }
+  saveState();
   goToPhase('5');
 }
 
@@ -3757,6 +5155,8 @@ function playBellSound() {
 function enterCourt() {
   document.getElementById('musicGate').style.display = 'none';
   document.getElementById('courtContent').style.display = 'block';
+  courtEntered = true;
+  saveState();
   playBellSound();
   buildAdvisorCards();
   setTimeout(function() { startCourtMusic(); }, 2000);
@@ -4073,6 +5473,7 @@ function submitDeepDiveAnswer(globalIndex) {
 
   // Save answer
   deepDiveAnswers[item.passage.id] = answer;
+  saveState();
 
   var total = deepDiveSequence.length;
   var currentCard = document.getElementById('ddcard_' + globalIndex);
@@ -4084,10 +5485,13 @@ function submitDeepDiveAnswer(globalIndex) {
       currentDeepDiveIndex = globalIndex + 1;
       var nextCard = document.getElementById('ddcard_' + currentDeepDiveIndex);
       nextCard.style.display = 'block';
+      saveState();
       scrollToTop();
     }, 400);
   } else {
     // All passages done — show continue button
+    deepDiveComplete = true;
+    saveState();
     setTimeout(function() {
       currentCard.style.display = 'none';
       var doneMsg = document.createElement('div');
@@ -4308,6 +5712,31 @@ function printEssayPlan() {
   window.print();
 }
 
+function saveAsPdf() {
+  // If they're on a phase before the essay plan, build it first
+  if (currentPhase !== '7') {
+    // Temporarily switch to phase 7 for printing, then switch back
+    var prevPhase = currentPhase;
+    buildEssayPlanIfNeeded();
+    var phase7 = document.getElementById('phase7');
+    phase7.classList.add('active');
+    window.print();
+    phase7.classList.remove('active');
+    // Re-show current phase
+    document.getElementById('phase' + prevPhase).classList.add('active');
+  } else {
+    window.print();
+  }
+}
+
+function buildEssayPlanIfNeeded() {
+  // Force rebuild of essay plan even if not on phase 7
+  var container = document.getElementById('essayPlanContainer');
+  if (container && container.children.length === 0 && selectedStimulus && selectedTheory1 && selectedTheory2) {
+    buildEssayPlan();
+  }
+}
+
 // ============ TITLE PAGE ============
 var titleMusicParts = [];
 var titleMusicStarted = false;
@@ -4486,6 +5915,12 @@ function checkExemplar(criterion, pairIndex, clickedEl) {
 var progressBarInit = document.querySelector('.progress-bar');
 if (progressBarInit) progressBarInit.style.display = 'none';
 
+// Check for saved progress — show resume prompt on title page
+var savedState = loadState();
+if (savedState && savedState.selectedStimulusId && savedState.currentPhase && savedState.currentPhase !== '0') {
+  var resumeEl = document.getElementById('resumePrompt');
+  if (resumeEl) resumeEl.style.display = 'block';
+}
 updateProgressBar();
 </script>
 
